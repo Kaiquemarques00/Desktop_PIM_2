@@ -10,7 +10,7 @@ from app.telas.cultura import TelaCultura
 class ChecarEstado: # essa classe checa o estado do sistema para utilização do token de navegação
     def __init__(self):
         self.token=None
-        self.usuarios=None
+        self.dados_api=None
 
 def registro_rotas(page:ft.Page):
     checar_estado=ChecarEstado()

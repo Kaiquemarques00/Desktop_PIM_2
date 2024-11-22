@@ -14,7 +14,7 @@ class TelaUsuarios:
     def usuarios(self):
         appbar=Appbar(self.page).appBar()
         sidebar=Sidebar(self.page).sideBar("usuarios")
-        btn_cadastro=BotaoFuncionalidade(self.page, self.checar_estado).botaoCadastro("user", "usuarios")
+        btn_cadastro=BotaoFuncionalidade(self.page, self.checar_estado).botaoCadastro("user", "usuarios", ["nome", "email", "senha", "role"])
         tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "Nome", "Email", "Cargo"], ["usuario_id", "nome", "email", "tipo_usuario"], "users", "user")
 
         ###############################################################################

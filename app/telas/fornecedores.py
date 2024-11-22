@@ -14,7 +14,7 @@ class TelaFornecedores:
     def fornecedores(self):
         appbar=Appbar(self.page).appBar()
         sidebar=Sidebar(self.page).sideBar("fornecedores")
-        btn_cadastro=BotaoFuncionalidade(self.page, self.checar_estado).botaoCadastro("supplier", "fornecedores")
+        btn_cadastro=BotaoFuncionalidade(self.page, self.checar_estado).botaoCadastro("supplier", "fornecedores", ["nome", "cnpj", "email", "telefone", "rua", "numero", "bairro", "cidade", "estado", "cep"])
         tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "CNPJ", "Nome", "Telefone"], ["fornecedor_id", "cnpj", "nome", "telefone"], "suppliers", "supplier")
 
         ###############################################################################

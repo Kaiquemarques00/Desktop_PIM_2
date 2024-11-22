@@ -9,6 +9,7 @@ class Tabela:
         self.page=page
         self.checar_estado=checar_estado
 
+
     def colunas(self, titulos):
 
         colunas=[]
