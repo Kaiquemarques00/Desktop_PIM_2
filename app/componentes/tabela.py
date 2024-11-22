@@ -20,7 +20,7 @@ class Tabela:
 
         return colunas
     
-    def linhas(self, dados, caminho, caminho2):
+    def linhas(self, dados, caminho, caminho2, tela, inputs_form):
         consultaAPI=Api(self.checar_estado).consulta(caminho)
         self.checar_estado.usuarios=consultaAPI
         popup=Popup(self.page, self.checar_estado)
@@ -28,7 +28,7 @@ class Tabela:
         def expande_linha(e):
             id_linha=e.control.data
             consulta_por_id=Api(self.checar_estado).consulta_por_id(caminho2, id_linha)
-            popup.show_popup_infos(consulta_por_id)
+            popup.show_popup_infos(consulta_por_id, tela, inputs_form, caminho2)
 
         linhas = []
         for dado in consultaAPI:
@@ -48,9 +48,9 @@ class Tabela:
             
         return linhas
 
-    def tabela(self, titulos, dados, caminho, caminho2):
+    def tabela(self, titulos, dados, caminho, caminho2, tela, inputs_form):
         colunas=self.colunas(titulos)
-        linhas=self.linhas(dados, caminho, caminho2)
+        linhas=self.linhas(dados, caminho, caminho2, tela, inputs_form)
 
         container_tabela = ft.Container(
             content=ft.DataTable(columns=colunas, rows=linhas, data_row_max_height=60, heading_row_height=60, column_spacing=120),

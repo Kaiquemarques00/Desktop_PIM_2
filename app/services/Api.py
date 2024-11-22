@@ -47,3 +47,14 @@ class Api:
         respostaFormatada= resposta.json()
 
         return respostaFormatada
+
+    def altera_parcial(self, endpoint, id, dados):
+            params = {
+            "Authorization": f"Bearer {self.checar_estado.token}"
+            }
+
+            resposta = requests.patch(f"{API_URL}/{endpoint}/{id}", headers=params, json=dados)
+
+            respostaFormatada= resposta.json()
+
+            return respostaFormatada
