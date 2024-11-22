@@ -37,12 +37,15 @@ class Popup:
 
         def manda_dados_form(e):
             inputs=formulario.content.controls
+            print(inputs)
             self.checar_estado.dados_api = {inputs_form[i]: inputs[i].value for i in range(len(inputs))}
             dados_criacao=self.checar_estado.dados_api
             if "numero" in dados_criacao:
                 dados_criacao["numero"] = int(dados_criacao["numero"])
             if "ciclo" in dados_criacao:
                 dados_criacao["ciclo"] = int(dados_criacao["ciclo"])
+            if "area_plantada" in dados_criacao:
+                dados_criacao["area_plantada"] = int(dados_criacao["area_plantada"])
 
             feedback = Api(self.checar_estado).cria(f"{caminho}", dados_criacao)
             snack_feedback(e, feedback)

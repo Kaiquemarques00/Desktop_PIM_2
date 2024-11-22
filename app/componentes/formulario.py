@@ -45,6 +45,43 @@ class Formulario:
 
         return inputs
     
+    def form_insumos(self):
+        consultaAPI=Api(self.checar_estado).consulta("suppliers")
+        nome_fornecedores=[dicionario["nome"] for dicionario in consultaAPI]
+        dropdown_opcoes = [
+            ft.dropdown.Option(item) for item in nome_fornecedores
+        ]
+
+        input_nome=ft.TextField(label="Nome: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_tipo=ft.TextField(label="Tipo: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_medida=ft.TextField(label="Medida: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_quantidade=ft.TextField(label="Quantidade estoque: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_fornecedor=ft.Dropdown(width=200, label="Fornecedor: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=dropdown_opcoes)
+        input_observacoes=ft.TextField(label="Onservações: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+
+
+        inputs=[input_nome, input_tipo, input_medida, input_quantidade, input_fornecedor, input_observacoes]
+
+        return inputs
+    
+    def form_plantios(self):
+        consultaAPI=Api(self.checar_estado).consulta("cultures")
+        nome_culturas=[dicionario["nome"] for dicionario in consultaAPI]
+        dropdown_opcoes = [
+            ft.dropdown.Option(item) for item in nome_culturas
+        ]
+
+        input_cultura=ft.Dropdown(width=200, label="Cultura: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=dropdown_opcoes)
+        input_area=ft.TextField(label="Área plantada: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_status=ft.Dropdown(width=200, label="Status: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=[ft.dropdown.Option("Planejado"), ft.dropdown.Option("Em andamento"), ft.dropdown.Option("Concluido"), ft.dropdown.Option("Cancelado")])
+        input_insumos=ft.TextField(label="Lista insumo: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_observacoes=ft.TextField(label="Onservações: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+
+
+        inputs=[input_cultura, input_area, input_status, input_insumos, input_observacoes]
+
+        return inputs
+    
     def formulario(self, tela):
 
         if tela == "usuarios":
@@ -53,7 +90,10 @@ class Formulario:
             inputs=self.form_fornecedores()
         elif tela == "culturas":
             inputs=self.form_culturas()
-        
+        elif tela == "insumos":
+            inputs=self.form_insumos()
+        elif tela == "plantios":
+            inputs=self.form_plantios()
 
         formulario=ft.Container(
             content=ft.Column(

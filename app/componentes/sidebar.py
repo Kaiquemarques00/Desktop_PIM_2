@@ -193,6 +193,7 @@ class Sidebar:
             padding=10,
             margin=ft.margin.only(left=1,top=0,right=1,bottom=0),
             on_hover=hover_btn,
+            on_click=lambda e:navegar("/plantios"),
             content=ft.Row(
                 [
                     ft.Image("app/assets/icone_plantio.svg",width=30,height=30)
@@ -215,6 +216,7 @@ class Sidebar:
             padding=10,
             margin=ft.margin.only(left=4,top=0,right=4,bottom=0),
             on_hover=hover_btn,
+            on_click=lambda e:navegar("/insumos"),
             content=ft.Row(
                 [
                     ft.Image("app/assets/icone_insumos.svg",width=30,height=30)
