@@ -38,7 +38,7 @@ def registro_rotas(page:ft.Page):
 
         elif page.route=="/culturas":
             obj_cultura=TelaCultura(page,checar_estado)
-            page.views.append(ft.View(route="/culturas",controls=[obj_cultura.cultura()]))
+            page.views.append(ft.View(route="/culturas",controls=[obj_cultura.culturas()]))
 
 
         page.update()

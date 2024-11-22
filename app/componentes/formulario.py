@@ -35,13 +35,24 @@ class Formulario:
 
         return inputs
     
+    def form_culturas(self):
+        input_nome=ft.TextField(label="Nome: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_ciclo=ft.TextField(label="Ciclo: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_descricao=ft.TextField(label="Descrição: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+
+
+        inputs=[input_nome, input_ciclo, input_descricao]
+
+        return inputs
     
     def formulario(self, tela):
 
         if tela == "usuarios":
             inputs=self.form_usuarios()
-        if tela == "fornecedores":
+        elif tela == "fornecedores":
             inputs=self.form_fornecedores()
+        elif tela == "culturas":
+            inputs=self.form_culturas()
         
 
         formulario=ft.Container(

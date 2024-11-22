@@ -41,6 +41,8 @@ class Popup:
             dados_criacao=self.checar_estado.dados_api
             if "numero" in dados_criacao:
                 dados_criacao["numero"] = int(dados_criacao["numero"])
+            if "ciclo" in dados_criacao:
+                dados_criacao["ciclo"] = int(dados_criacao["ciclo"])
 
             feedback = Api(self.checar_estado).cria(f"{caminho}", dados_criacao)
             snack_feedback(e, feedback)

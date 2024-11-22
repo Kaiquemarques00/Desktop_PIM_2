@@ -11,14 +11,27 @@ class TelaCultura:
         self.page=page
         self.checar_estado=checar_estado
 
-    def cultura(self):
-        appbar=Appbar(self.page).appBar()
-        sidebar=Sidebar(self.page).sideBar("cultura")
-        btn_cadastro=BotaoFuncionalidade(self.page, self.checar_estado).botaoCadastro("culture", "culturas")
-        tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "Nome", "Cultivo Dias", "Descrição"], ["cultura_id", "nome", "ciclo_cultivo_dias", "descricao"], "cultures", "culture")
+    def culturas(self):
 
+        appbar=Appbar(self.page).appBar()
+        sidebar=Sidebar(self.page).sideBar("culturas")
+        tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "Nome", "Cultivo Dias", "Descrição"], ["cultura_id", "nome", "ciclo_cultivo_dias", "descricao"], "cultures", "culture", "culturas", ["nome", "ciclo", "descricao"])
+        botoesFuncionalidade=BotaoFuncionalidade(self.page, self.checar_estado).botao_funcionalidade("culture", "culturas", ["nome", "ciclo", "descricao"])
+        
         ###############################################################################
         ###############################################################################
+
+        btn_container=ft.Container(
+            content=ft.Row(
+                [
+                    botoesFuncionalidade,
+                ],
+                alignment=ft.MainAxisAlignment.START,
+                expand=True,
+            ),
+            padding=0,
+            margin=ft.margin.only(left=140, bottom=100)
+        )
 
         tela=ft.Container(
             expand=True,
@@ -32,7 +45,7 @@ class TelaCultura:
                             ft.Column(
                                 [
                                     tabela,
-                                    btn_cadastro
+                                    btn_container
                                 ],
                                 expand=True,
                                 alignment=ft.MainAxisAlignment.CENTER,

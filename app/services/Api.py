@@ -17,10 +17,28 @@ class Api:
 
         return resposta_formatada
     
+    def consulta_arquivados(self, endpoint):
+        parametros={"Authorization":f"Bearer {self.checar_estado.token}"}
+
+        resultado=requests.get(f"{API_URL}/{endpoint}/arc",headers=parametros)
+
+        resposta_formatada=resultado.json()
+
+        return resposta_formatada
+    
     def consulta_por_id(self, endpoint, id):
         parametros={"Authorization":f"Bearer {self.checar_estado.token}"}
 
         resultado=requests.get(f"{API_URL}/{endpoint}/{id}",headers=parametros)
+
+        resposta_formatada=resultado.json()
+
+        return resposta_formatada
+    
+    def consulta_arquivado_por_id(self, endpoint, id):
+        parametros={"Authorization":f"Bearer {self.checar_estado.token}"}
+
+        resultado=requests.get(f"{API_URL}/{endpoint}/{id}/arc",headers=parametros)
 
         resposta_formatada=resultado.json()
 
