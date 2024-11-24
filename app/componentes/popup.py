@@ -45,21 +45,21 @@ class Popup:
             if "ciclo" in dados_criacao:
                 dados_criacao["ciclo"] = int(dados_criacao["ciclo"])
             if "area_plantada" in dados_criacao:
-                dados_criacao["area_plantada"] = int(dados_criacao["area_plantada"])
+                dados_criacao["area_plantada"] = float(dados_criacao["area_plantada"])
             if "qtd_estoque" in dados_criacao:
-                dados_criacao["qtd_estoque"] = int(dados_criacao["qtd_estoque"])
+                dados_criacao["qtd_estoque"] = float(dados_criacao["qtd_estoque"])
             if "custo_por_unidade" in dados_criacao:
-                dados_criacao["custo_por_unidade"] = int(dados_criacao["custo_por_unidade"])
+                dados_criacao["custo_por_unidade"] = float(dados_criacao["custo_por_unidade"])
             if "plantio_id" in dados_criacao:
                 dados_criacao["plantio_id"] = int(dados_criacao["plantio_id"])
             if "qtd_colhida" in dados_criacao:
-                dados_criacao["qtd_colhida"] = int(dados_criacao["qtd_colhida"])
+                dados_criacao["qtd_colhida"] = float(dados_criacao["qtd_colhida"])
             if "usuario_id" in dados_criacao:
                 dados_criacao["usuario_id"] = int(dados_criacao["usuario_id"])
             if "quantidade" in dados_criacao:
                 dados_criacao["quantidade"] = int(dados_criacao["quantidade"])
             if "preco_unitario" in dados_criacao:
-                dados_criacao["preco_unitario"] = int(dados_criacao["preco_unitario"])
+                dados_criacao["preco_unitario"] = float(dados_criacao["preco_unitario"])
 
             feedback = Api(self.checar_estado).cria(f"{caminho}", dados_criacao)
             snack_feedback(e, feedback)
