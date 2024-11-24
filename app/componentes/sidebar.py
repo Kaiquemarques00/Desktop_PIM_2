@@ -205,6 +205,7 @@ class Sidebar:
             padding=10,
             margin=ft.margin.only(left=4,top=0,right=4,bottom=0),
             on_hover=hover_btn,
+            on_click=lambda e:navegar("/colheitas"),
             content=ft.Row(
                 [
                     ft.Image("app/assets/icone_colheita.svg",width=30,height=30)
@@ -240,6 +241,7 @@ class Sidebar:
             padding=10,
             margin=ft.margin.only(left=4,top=0,right=4,bottom=0),
             on_hover=hover_btn,
+            on_click=lambda e:navegar("/pedidos"),
             content=ft.Row(
                 [
                     ft.Image("app/assets/icone_financeiro.svg",width=30,height=30)

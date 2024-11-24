@@ -82,6 +82,44 @@ class Formulario:
 
         return inputs
     
+    def form_colheitas(self):
+        consultaAPI=Api(self.checar_estado).consulta("plantings")
+        nome_culturas=[dicionario["plantio_id"] for dicionario in consultaAPI]
+        dropdown_opcoes = [
+            ft.dropdown.Option(item) for item in nome_culturas
+        ]
+
+        input_plantio_id=ft.Dropdown(width=200, label="Plantio: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=dropdown_opcoes)
+        input_quantidade=ft.TextField(label="Quantidade colhida: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+
+
+        inputs=[input_plantio_id, input_quantidade]
+
+        return inputs
+    
+    def form_pedidos(self):
+        consultaAPI=Api(self.checar_estado).consulta("users")
+        consultaAPI2=Api(self.checar_estado).consulta("cultures")
+        id_usuarios=[dicionario["usuario_id"] for dicionario in consultaAPI]
+        dropdown_opcoes = [
+            ft.dropdown.Option(item) for item in id_usuarios
+        ]
+        nome_culturas=[dicionario["nome"] for dicionario in consultaAPI2]
+        dropdown_opcoes_2 = [
+            ft.dropdown.Option(item) for item in nome_culturas
+        ]
+
+        input_usuario_id=ft.Dropdown(width=200, label="Usuário ID: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=dropdown_opcoes)
+        input_cultura=ft.Dropdown(width=200, label="Cultura: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=dropdown_opcoes_2)
+        input_quantidade=ft.TextField(label="Quantidade: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_preco=ft.TextField(label="Preço: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_status=ft.Dropdown(width=200, label="Status: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=[ft.dropdown.Option("Pendente"), ft.dropdown.Option("Em andamento"), ft.dropdown.Option("Concluido")])
+
+
+        inputs=[input_usuario_id, input_cultura, input_quantidade, input_preco, input_status]
+
+        return inputs
+    
     def formulario(self, tela):
 
         if tela == "usuarios":
@@ -94,6 +132,10 @@ class Formulario:
             inputs=self.form_insumos()
         elif tela == "plantios":
             inputs=self.form_plantios()
+        elif tela == "colheitas":
+            inputs=self.form_colheitas()
+        elif tela == "pedidos":
+            inputs=self.form_pedidos()
 
         formulario=ft.Container(
             content=ft.Column(
