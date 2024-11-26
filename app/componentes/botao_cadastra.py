@@ -14,6 +14,6 @@ class BotaoFuncionalidade:
         def imprimir_funcionalidade(e):
             popup.show_popup_form(caminho2, tela, inputs_form)
 
-        btn_cadastra=ft.ElevatedButton(content=ft.Text("Cadastrar usuário", size=16), on_click=imprimir_funcionalidade, bgcolor="#1D3331", color=ft.colors.WHITE, height=40)
+        btn_cadastra=ft.ElevatedButton(content=ft.Text(f"Cadastrar {tela}", size=16), on_click=imprimir_funcionalidade, bgcolor="#1D3331", color=ft.colors.WHITE, height=40)
 
         return btn_cadastra

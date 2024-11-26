@@ -29,6 +29,8 @@ class Tabela:
             consulta_por_id=Api(self.checar_estado).consulta_por_id(caminho2, id_linha)
             popup.show_popup_infos(consulta_por_id, tela, inputs_form, caminho2)
 
+        print(consultaAPI)
+        print(dados)
         linhas = []
         for dado in consultaAPI:
             linhas.append(
