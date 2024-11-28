@@ -15,7 +15,7 @@ class TelaPedidos:
 
         appbar=Appbar(self.page).appBar()
         sidebar=Sidebar(self.page).sideBar("pedidos")
-        tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "Data Pedido", "Status", "Cultura"], ["pedido_id", "data_pedido", "status", "cultura_nome"], "orders", "order", "pedidos", ["usuario_id", "cultura", "quantidade", "preco_unitario", "status"])
+        tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "Data Pedido", "Status", "Cultura"], ["pedido_id", "data_pedido", "status", "cultura_nome"], "orders", "order", "pedidos", ["cultura", "quantidade", "preco_unitario", "usuario_id", "status"])
         botoesFuncionalidade=BotaoFuncionalidade(self.page, self.checar_estado).botao_funcionalidade("order", "pedidos", ["usuario_id", "cultura", "quantidade", "preco_unitario", "status"])
         
         ###############################################################################

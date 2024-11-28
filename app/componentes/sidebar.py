@@ -253,6 +253,7 @@ class Sidebar:
             padding=10,
             margin=ft.margin.only(left=9,top=0,right=9,bottom=0),
             on_hover=hover_btn,
+            on_click=lambda e:navegar("/relatorios"),
             content=ft.Row(
                 [
                     ft.Image("app/assets/icone_prancheta.svg",width=30,height=30),

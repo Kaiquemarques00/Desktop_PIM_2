@@ -116,7 +116,7 @@ class Formulario:
         input_status=ft.Dropdown(width=200, label="Status: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=[ft.dropdown.Option("Pendente"), ft.dropdown.Option("Em andamento"), ft.dropdown.Option("Concluido")])
 
 
-        inputs=[input_usuario_id, input_cultura, input_quantidade, input_preco, input_status]
+        inputs=[input_cultura, input_quantidade, input_preco, input_usuario_id, input_status]
 
         return inputs
     

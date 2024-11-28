@@ -149,6 +149,7 @@ class Popup:
             i=0
             for input in inputs:
                 input.value = values[i]
+                print(values[i])
                 i = i + 1
                 if(input.label=="Senha: "):
                     input.value = None
@@ -170,6 +171,24 @@ class Popup:
             campo, id = list(dados[0].items())[0]
             if "numero" in dados_alteracao:
                 dados_alteracao["numero"] = int(dados_alteracao["numero"])
+            if "ciclo" in dados_alteracao:
+                dados_alteracao["ciclo"] = int(dados_alteracao["ciclo"])
+            if "area_plantada" in dados_alteracao:
+                dados_alteracao["area_plantada"] = float(dados_alteracao["area_plantada"])
+            if "qtd_estoque" in dados_alteracao:
+                dados_alteracao["qtd_estoque"] = float(dados_alteracao["qtd_estoque"])
+            if "custo_por_unidade" in dados_alteracao:
+                dados_alteracao["custo_por_unidade"] = float(dados_alteracao["custo_por_unidade"])
+            if "plantio_id" in dados_alteracao:
+                dados_alteracao["plantio_id"] = int(dados_alteracao["plantio_id"])
+            if "qtd_colhida" in dados_alteracao:
+                dados_alteracao["qtd_colhida"] = float(dados_alteracao["qtd_colhida"])
+            if "usuario_id" in dados_alteracao:
+                dados_alteracao["usuario_id"] = int(dados_alteracao["usuario_id"])
+            if "quantidade" in dados_alteracao:
+                dados_alteracao["quantidade"] = int(dados_alteracao["quantidade"])
+            if "preco_unitario" in dados_alteracao:
+                dados_alteracao["preco_unitario"] = float(dados_alteracao["preco_unitario"])
             print(dados_alteracao)
             feedback = Api(self.checar_estado).altera_parcial(f"{caminho2}", id, dados_alteracao)
             snack_feedback(e, feedback)

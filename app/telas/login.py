@@ -1,8 +1,9 @@
 import flet as ft
 import requests
+import jwt
 
 API_URL="https://api-pim.onrender.com"
-SECRET_KEY="0d8689404a2c83325a0353496caafcdfa01abd76f4511037bad2a66ed3dd6050"
+SECRET_KEY = "0d8689404a2c83325a0353496caafcdfa01abd76f4511037bad2a66ed3dd6050"
 
 class TelaLogin:
     def __init__(self,page,checar_estado):
@@ -46,9 +47,17 @@ class TelaLogin:
                 if response.status_code==200 and "token" in response_data:
                     token=response_data["token"]
                     self.checar_estado.token=token
+                    print(token)
+                    try:
+    # Decodificando e validando o token
+                        decoded_payload = jwt.decode(token, options={"verify_signature": False})
+                        self.checar_estado.role=decoded_payload["role"]
+                    except jwt.ExpiredSignatureError:
+                        print("O token expirou.")
+                    except jwt.InvalidTokenError:
+                        print("Token inválido.")
 
                     self.page.go("/home")
-
                 else:
                     snack_erro_login(e,response_data)
 

@@ -1,4 +1,5 @@
 import flet as ft
+import jwt
 
 from app.telas.login import TelaLogin
 from app.telas.home import TelaHome
@@ -9,11 +10,15 @@ from app.telas.insumos import TelaInsumos
 from app.telas.plantios import TelaPlantios
 from app.telas.colheita import TelaColheitas
 from app.telas.pedido_venda import TelaPedidos
+from app.telas.relatorios import TelaRelatorios
+
+SECRET_KEY = "0d8689404a2c83325a0353496caafcdfa01abd76f4511037bad2a66ed3dd6050"
 
 class ChecarEstado: # essa classe checa o estado do sistema para utilização do token de navegação
     def __init__(self):
         self.token=None
         self.dados_api=None
+        self.role=None
 
 def registro_rotas(page:ft.Page):
     checar_estado=ChecarEstado()
@@ -58,6 +63,10 @@ def registro_rotas(page:ft.Page):
         elif page.route=="/pedidos":
             obj_pedido=TelaPedidos(page,checar_estado)
             page.views.append(ft.View(route="/plantios",controls=[obj_pedido.pedidos()]))
+
+        elif page.route=="/relatorios":
+            obj_relatorio=TelaRelatorios(page,checar_estado)
+            page.views.append(ft.View(route="/relatorios",controls=[obj_relatorio.relatorios()]))
 
         page.update()
 

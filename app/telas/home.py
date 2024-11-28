@@ -7,7 +7,7 @@ class TelaHome:
 
     def __init__(self,page,checar_estado):
         self.page=page
-        self.app_state=checar_estado
+        self.checar_estado=checar_estado
 
     def home(self):
         appbar = Appbar(self.page).appBar()
@@ -18,7 +18,7 @@ class TelaHome:
             margin=10,
             content=ft.Column(
                 [
-                    ft.Text("Bem-vindo ao Sistema de Gerenciamento da Fazenda Urbana",color=ft.colors.BLACK,size=20),
+                    ft.Text(f"Bem-vindo ao Sistema de Gerenciamento da Fazenda Urbana, {self.checar_estado.role}",color=ft.colors.BLACK,size=20),
                     ft.Text(
                         "Aqui você pode visualizar um resumo das operações.\nNavegue pelas opções do menu para gerenciar as culturas, plantios, colheitas e mais",
                         color=ft.colors.BLACK
