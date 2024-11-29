@@ -22,15 +22,29 @@ class TelaPlantios:
         ###############################################################################
 
         btn_container=ft.Container(
+            padding=10,
+            margin=10,
             content=ft.Row(
                 [
                     botoesFuncionalidade,
                 ],
                 alignment=ft.MainAxisAlignment.START,
                 expand=True,
-            ),
-            padding=0,
-            margin=ft.margin.only(left=140, bottom=100)
+            )
+        )
+
+        txt_tela=ft.Container(
+            padding=10,
+            margin=10,
+            content=ft.Column(
+                [
+                    ft.Text("Gerenciamento de Plantios",color=ft.colors.BLACK,size=20),
+                    ft.Text(
+                        "Aqui você pode visualizar e criar plantios.",
+                        color=ft.colors.BLACK
+                    )
+                ]
+            )
         )
 
         tela=ft.Container(
@@ -42,10 +56,16 @@ class TelaPlantios:
                     ft.Column(
                         [
                             appbar,
+                            ft.Row(
+                                [
+                                    txt_tela,
+                                    btn_container
+                                ],
+                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN
+                            ),
                             ft.Column(
                                 [
                                     tabela,
-                                    btn_container
                                 ],
                                 expand=True,
                                 alignment=ft.MainAxisAlignment.CENTER,

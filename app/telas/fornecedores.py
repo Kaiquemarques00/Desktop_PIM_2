@@ -37,6 +37,8 @@ class TelaFornecedores:
         ###############################################################################
 
         btn_container=ft.Container(
+            padding=10,
+            margin=10,
             content=ft.Row(
                 [
                     botoesFuncionalidade,
@@ -44,9 +46,21 @@ class TelaFornecedores:
                 ],
                 alignment=ft.MainAxisAlignment.START,
                 expand=True,
-            ),
-            padding=0,
-            margin=ft.margin.only(left=140, bottom=100)
+            )
+        )
+
+        txt_tela=ft.Container(
+            padding=10,
+            margin=10,
+            content=ft.Column(
+                [
+                    ft.Text("Gerenciamento de fornecedores",color=ft.colors.BLACK,size=20),
+                    ft.Text(
+                        "Aqui você pode visualizar e criar fornecedores.",
+                        color=ft.colors.BLACK
+                    )
+                ]
+            )
         )
 
         tela=ft.Container(
@@ -58,11 +72,17 @@ class TelaFornecedores:
                     ft.Column(
                         [
                             appbar,
+                            ft.Row(
+                                [
+                                    txt_tela,
+                                    btn_container
+                                ],
+                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN
+                            ),
                             ft.Column(
                                 [
                                     tabela,
                                     tabela_arquivados,
-                                    btn_container
                                 ],
                                 expand=True,
                                 alignment=ft.MainAxisAlignment.CENTER,

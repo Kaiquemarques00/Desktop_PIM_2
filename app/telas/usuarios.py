@@ -40,16 +40,32 @@ class TelaUsuarios:
 
         if self.checar_estado.role == "Administrador":
             btn_container=ft.Container(
-                content=ft.Row(
+            padding=10,
+            margin=10,
+            content=ft.Row(
+                [
+                    botoesFuncionalidade,
+                    btn_arquivados
+                ],
+                alignment=ft.MainAxisAlignment.START,
+                expand=True,
+            ),
+            #padding=0,
+            #margin=ft.margin.only(left=140, bottom=100)
+            )
+
+            txt_tela=ft.Container(
+                padding=10,
+                margin=10,
+                content=ft.Column(
                     [
-                        botoesFuncionalidade,
-                        btn_arquivados
-                    ],
-                    alignment=ft.MainAxisAlignment.START,
-                    expand=True,
-                ),
-                padding=0,
-                margin=ft.margin.only(left=140, bottom=100)
+                        ft.Text("Gerenciamento de Usuários",color=ft.colors.BLACK,size=20),
+                        ft.Text(
+                            "Aqui você pode visualizar e criar usuários.",
+                            color=ft.colors.BLACK
+                        )
+                    ]
+                )
             )
 
         if self.checar_estado.role == "Administrador":
@@ -62,11 +78,18 @@ class TelaUsuarios:
                     ft.Column(
                         [
                             appbar,
+                            ft.Row(
+                                [
+                                    txt_tela,
+                                    btn_container
+                                ],
+                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN
+                            ),
+
                             ft.Column(
                                 [
                                     tabela,
                                     tabela_arquivados,
-                                    btn_container
                                 ],
                                 expand=True,
                                 alignment=ft.MainAxisAlignment.CENTER,
@@ -83,7 +106,7 @@ class TelaUsuarios:
                 spacing=0,
             ),
             alignment=ft.alignment.center
-            )
+        )
 
         elif self.checar_estado.role == "Funcionario":
             tela=ft.Container(
