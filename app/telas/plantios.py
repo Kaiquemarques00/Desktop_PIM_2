@@ -15,7 +15,7 @@ class TelaPlantios:
 
         appbar=Appbar(self.page).appBar()
         sidebar=Sidebar(self.page).sideBar("plantios")
-        tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "Cultura", "Área plantada", "Status"], ["plantio_id", "cultura_nome", "data_inicio", "previsao_colheita", "area_plantada", "status", "observacoes"], "plantings", "planting", "plantios", ["cultura", "area_plantada", "status", "lista_insumos", "observacoes"])
+        tabela=Tabela(self.page, self.checar_estado).tabela(["ID", "Cultura", "Área plantada", "Status"], ["plantio_id", "cultura_nome", "area_plantada", "status"], "plantings", "planting", "plantios", ["cultura", "area_plantada", "status", "lista_insumos", "observacoes"])
         botoesFuncionalidade=BotaoFuncionalidade(self.page, self.checar_estado).botao_funcionalidade("planting", "plantios", ["cultura", "area_plantada", "status", "lista_insumos", "observacoes"])
         
         ###############################################################################
