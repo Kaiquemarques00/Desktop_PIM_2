@@ -163,8 +163,8 @@ class Popup:
             print(dados_formatados)
             print(dados_verifica)
             dados_alteracao={}
-            for chave in dados_inputs:
-                if chave in dados_verifica and dados_inputs[chave] != dados_verifica[chave]:
+            for chave in dados_formatados:
+                if chave in dados_verifica and dados_formatados[chave] != dados_verifica[chave]:
                 # Se os valores forem diferentes, adiciona no novo dicionário
                     dados_alteracao[chave] = (dados_verifica[chave])
 
