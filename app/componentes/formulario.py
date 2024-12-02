@@ -142,6 +142,7 @@ class Formulario:
                 inputs,
                 alignment=ft.MainAxisAlignment.CENTER,
                 expand=True,
+                scroll='auto'
             ),
             alignment=ft.alignment.center,
             padding=0,
