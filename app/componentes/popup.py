@@ -187,7 +187,7 @@ class Popup:
             if "usuario_id" in dados_alteracao:
                 dados_alteracao["usuario_id"] = int(dados_alteracao["usuario_id"])
             if "quantidade" in dados_alteracao:
-                dados_alteracao["quantidade"] = int(dados_alteracao["quantidade"])
+                dados_alteracao["quantidade"] = float(dados_alteracao["quantidade"])
             if "preco_unitario" in dados_alteracao:
                 dados_alteracao["preco_unitario"] = float(dados_alteracao["preco_unitario"])
             print(dados_alteracao)

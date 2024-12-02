@@ -56,11 +56,12 @@ class Formulario:
         input_tipo=ft.TextField(label="Tipo: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
         input_medida=ft.TextField(label="Medida: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
         input_quantidade=ft.TextField(label="Quantidade estoque: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
+        input_custo=ft.TextField(label="Custo por unidade: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
         input_fornecedor=ft.Dropdown(width=200, label="Fornecedor: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=dropdown_opcoes)
         input_observacoes=ft.TextField(label="Onservações: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
 
 
-        inputs=[input_nome, input_tipo, input_medida, input_quantidade, input_fornecedor, input_observacoes]
+        inputs=[input_nome, input_tipo, input_medida, input_quantidade, input_custo, input_fornecedor, input_observacoes]
 
         return inputs
     
