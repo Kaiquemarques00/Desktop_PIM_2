@@ -21,6 +21,12 @@ class Popup:
         popup_infos.open = True
         self.page.update()
 
+    def show_popup_infos_arc(self, dados, tela, inputs_form, caminho2):
+        popup_infos=self.popup_infos_arc(dados, tela, inputs_form, caminho2)
+        self.page.dialog = popup_infos
+        popup_infos.open = True
+        self.page.update()   
+
     def popup_form(self, caminho, tela, inputs_form):
         formulario=Formulario(self.page, self.checar_estado).formulario(tela)
         
@@ -95,6 +101,7 @@ class Popup:
         return popup_cria
     
     def popup_infos(self, dados, tela, inputs_form, caminho2):
+
         formulario=Formulario(self.page, self.checar_estado).formulario(tela)
 
         infos=[]
@@ -212,6 +219,31 @@ class Popup:
             ft.ElevatedButton("Deletar", style=ft.ButtonStyle(bgcolor=ft.colors.RED, color=ft.colors.WHITE, text_style=ft.TextStyle(size=16)), height=40, on_click=lambda e:self.page.open(alerta_deleta)),
             ft.ElevatedButton("Alterar", style=ft.ButtonStyle(bgcolor=ft.colors.BLUE, color=ft.colors.WHITE, text_style=ft.TextStyle(size=16)), height=40, on_click=habilita_altera),
             ft.ElevatedButton("Enviar", style=ft.ButtonStyle(bgcolor=ft.colors.GREEN, color=ft.colors.WHITE, text_style=ft.TextStyle(size=16)), height=40, on_click=altera),
+        ],
+    )
+
+        return popup_amplia
+    
+    def popup_infos_arc(self, dados, tela, inputs_form, caminho2):
+        infos=[]
+        for chave, valor in dados[0].items():
+            infos.append(
+                ft.TextField(label=f"{chave}" , value=f"{valor}", width=self.page.width * 0.8, read_only=True)
+            )
+
+        def close_dialog(e):
+            popup_amplia.open = False
+            self.page.update()
+
+        popup_amplia = ft.AlertDialog(
+        title=ft.Text("Dados"),
+        content=ft.Column(infos,
+        width=self.page.width * 0.95,
+        scroll='auto',
+        alignment=ft.alignment.center_right,
+        ),
+        actions=[
+            ft.ElevatedButton("Cancelar", style=ft.ButtonStyle(bgcolor=ft.colors.RED, color=ft.colors.WHITE, text_style=ft.TextStyle(size=16)), height=40, on_click=close_dialog)
         ],
     )
 

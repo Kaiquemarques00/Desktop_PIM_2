@@ -80,7 +80,7 @@ class Tabela:
         def expande_linha(e):
             id_linha=e.control.data
             consulta_por_id=Api(self.checar_estado).consulta_arquivado_por_id(caminho2, id_linha)
-            popup.show_popup_infos(consulta_por_id, tela, inputs_form, caminho2)
+            popup.show_popup_infos_arc(consulta_por_id, tela, inputs_form, caminho2)
 
         linhas = []
         for dado in consultaAPI:

@@ -51,7 +51,7 @@ class Api:
         try:
             parametros={"Authorization":f"Bearer {self.checar_estado.token}"}
 
-            resultado=requests.get(f"{API_URL}/{endpoint}/{id}/arc",headers=parametros)
+            resultado=requests.get(f"{API_URL}/{endpoint}/arc/{id}",headers=parametros)
 
             resposta_formatada=resultado.json()
 
