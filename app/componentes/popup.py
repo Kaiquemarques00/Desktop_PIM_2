@@ -153,6 +153,7 @@ class Popup:
                 i = i + 1
                 if(input.label=="Senha: "):
                     input.value = None
+                    inputs[2].disabled=True
             self.page.update()
 
         def altera(e):

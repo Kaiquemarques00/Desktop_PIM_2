@@ -74,11 +74,10 @@ class Formulario:
         input_cultura=ft.Dropdown(width=200, label="Cultura: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=dropdown_opcoes)
         input_area=ft.TextField(label="Área plantada: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
         input_status=ft.Dropdown(width=200, label="Status: ", label_style=ft.TextStyle(color=ft.colors.WHITE), color=ft.colors.WHITE, options=[ft.dropdown.Option("Planejado"), ft.dropdown.Option("Em andamento"), ft.dropdown.Option("Concluido"), ft.dropdown.Option("Cancelado")])
-        input_insumos=ft.TextField(label="Lista insumo: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
         input_observacoes=ft.TextField(label="Onservações: ", width=500, color=ft.colors.WHITE,label_style=ft.TextStyle(color=ft.colors.WHITE))
 
 
-        inputs=[input_cultura, input_area, input_status, input_insumos, input_observacoes]
+        inputs=[input_cultura, input_area, input_status, input_observacoes]
 
         return inputs
     
